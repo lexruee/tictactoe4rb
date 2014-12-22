@@ -11,7 +11,7 @@ A tic tac toe game written in Ruby.
 * Implement frontend 
   * Options 
     * Implement a command line interface (CLI)
-    * Implement a GUI (shoes)
+    * Implement a GUI (ruby-gnome)
     * Implement a Web Application (rails/sinatra)
 
  

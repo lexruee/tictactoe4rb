@@ -17,5 +17,9 @@ module Tictactoe4rb
     def current_player
       @players[@moves%2]
     end
+
+    def finished?
+      @board.check
+    end
   end
 end

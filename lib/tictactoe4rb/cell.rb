@@ -1,5 +1,4 @@
-# lib/tic_tac_toe/cell.rb
-module TicTacToe
+module Tictactoe4rb
   class Cell
   end
 end

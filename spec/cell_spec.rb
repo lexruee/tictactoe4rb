@@ -1,4 +1,6 @@
-module TicTacToe
+require 'tictactoe4rb'
+
+module Tictactoe4rb
   describe Cell do
 
     context "#initialize" do

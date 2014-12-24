@@ -19,7 +19,7 @@ module Tictactoe4rb
     end
 
     def finished?
-      @board.check
+      @board.check(current_player)
     end
   end
 end

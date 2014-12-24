@@ -66,7 +66,7 @@ module Tictactoe4rb
   describe DiagonalChecker do
     it "tests if LR diagonal checker works" do
       board = Board.new(3, 3)
-      diagonal_checker = DiagonalChecker.new 3, 2
+      diagonal_checker = DiagonalChecker.new 3, 3
       player = Player.new 'dummy', :x
       expect(diagonal_checker.check(board, player)).to eq false
 
@@ -79,7 +79,7 @@ module Tictactoe4rb
 
     it "tests if RL diagonal checker works" do
       board = Board.new(3, 3)
-      diagonal_checker = DiagonalChecker.new 3, 2
+      diagonal_checker = DiagonalChecker.new 3, 3
       player = Player.new 'dummy', :x
       expect(diagonal_checker.check(board, player)).to eq false
 
@@ -89,6 +89,40 @@ module Tictactoe4rb
 
       expect(diagonal_checker.check(board, player)).to eq true
     end
+  end
+
+  describe Board do
+
+    it "tests if there are no three tokens on a line" do
+      board = Board.new(3, 3)
+      player = Player.new 'dummy', :x
+      expect(board.check(player)).to eq false
+      board[0,0] = player.token
+      expect(board.check(player)).to eq false
+      board[0,1] = player.token
+      expect(board.check(player)).to eq false
+      board[1,1] = player.token
+      expect(board.check(player)).to eq false
+      board[2,0] = player.token
+      expect(board.check(player)).to eq false
+    end
+
+    it "tests if there are three tokens on a line" do
+      board = Board.new(3, 3)
+      player = Player.new 'dummy', :x
+      expect(board.check(player)).to eq false
+      board[0,0] = player.token
+      expect(board.check(player)).to eq false
+      board[0,1] = player.token
+      expect(board.check(player)).to eq false
+      board[1,1] = player.token
+      expect(board.check(player)).to eq false
+      board[2,0] = player.token
+      expect(board.check(player)).to eq false
+      board[2,2] = player.token
+      expect(board.check(player)).to eq true
+    end
+
   end
 
 end

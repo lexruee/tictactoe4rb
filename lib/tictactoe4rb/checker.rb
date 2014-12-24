@@ -73,7 +73,7 @@ module Tictactoe4rb
       super([])
       cells = [rows, columns].min
       @checkers << Checker.new([0,0],[1,1],cells) # Top-left to Bottom-right Diagonal Checker
-      @checkers << Checker.new([columns,0],[-1,1],cells) # Top-right to Bottom-left Diagonal Checker
+      @checkers << Checker.new([columns-1,0],[-1,1],cells) # Top-right to Bottom-left Diagonal Checker
     end
 
   end

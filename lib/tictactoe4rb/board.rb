@@ -35,7 +35,13 @@ module Tictactoe4rb
     end
 
     def check(player)
-
+      checkers = []
+      checkers << RowChecker.new(rows)
+      checkers << ColumnChecker.new(columns)
+      checkers << DiagonalChecker.new(rows,columns)
+      checkers.reduce(false) do |acc, checker|
+        acc || checker.check(self, player)
+      end
     end
 
   end

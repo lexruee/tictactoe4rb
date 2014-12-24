@@ -11,12 +11,9 @@ module Tictactoe4rb
     def check(board, player)
       check_points = Array.new(@number_of_points, @start)
 
-      i = 0
-      check_points = check_points.map do |point|
+      check_points = check_points.each_with_index.map do |point, index|
         row, column = point
-        new_point = [row + @dr*i, column + @dc*i]
-        i += 1
-        new_point
+        [row + @dr*index, column + @dc*index]
       end
 
       check_points.reduce(true) do |acc, point|

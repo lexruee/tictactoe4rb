@@ -23,7 +23,7 @@ module Tictactoe4rb
         @players << Player.new(@name, token)
       end
       @board = Board.new(3, 3)
-      @game = Game.new(players, @board)
+      @game = Game.new(@players, @board)
     end
 
   end

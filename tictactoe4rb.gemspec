@@ -6,10 +6,10 @@ require 'tictactoe4rb/version'
 Gem::Specification.new do |spec|
   spec.name          = "tictactoe4rb"
   spec.version       = Tictactoe4rb::VERSION
-  spec.authors       = ["Roman Kuepper"]
-  spec.email         = ["rrkuepper@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.authors       = ["Roman Kuepper", "Alexander Rüedlinger"]
+  spec.email         = ["rrkuepper@gmail.com", "a.rueedlinger@gmail.com"]
+  spec.summary       = %q{A TicTacToe gem}
+  spec.description   = %q{TicTacToe written in Ruby}
   spec.homepage      = ""
   spec.license       = "MIT"
 

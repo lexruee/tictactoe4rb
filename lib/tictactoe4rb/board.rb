@@ -55,7 +55,7 @@ module Tictactoe4rb
       booleans = self.map do |field_value|
         field_value == Empty
       end
-      booleans.reduce(:|)
+      !booleans.reduce(:|)
     end
 
   end

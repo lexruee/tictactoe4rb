@@ -6,6 +6,10 @@ module Tictactoe4rb
       raise 'not implemented'
     end
 
+    def next_move
+      raise 'not implemented'
+    end
+
   end
 
   class TerminalReader < InputReader
@@ -14,9 +18,14 @@ module Tictactoe4rb
       gets
     end
 
+    def next_move
+      row, column = @moves.shift
+      [row.to_i, column.to_i]
+    end
+
   end
 
-  class ScriptedReader < InputReader
+  class ScriptedReader < TerminalReader
 
     def initialize(moves)
       @moves = moves

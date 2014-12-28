@@ -19,7 +19,15 @@ module Tictactoe4rb
     end
 
     def finished?
-      @board.check(current_player)
+      @board.check(current_player) || @board.full?
+    end
+
+    def winner
+      if @board.check(current_player)
+        current_player
+      else
+        false
+      end
     end
   end
 end

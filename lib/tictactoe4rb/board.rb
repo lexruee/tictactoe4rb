@@ -1,6 +1,7 @@
 module Tictactoe4rb
 
   class Board
+    include Enumerable
     Empty = :_
 
     attr_reader :rows, :columns, :fields
@@ -42,6 +43,19 @@ module Tictactoe4rb
       checkers.reduce(false) do |acc, checker|
         acc || checker.check(self, player)
       end
+    end
+
+    def each(&block)
+      @fields.each do |key, value|
+        block.call value
+      end
+    end
+
+    def full?
+      booleans = self.map do |field_value|
+        field_value == Empty
+      end
+      booleans.reduce(:|)
     end
 
   end

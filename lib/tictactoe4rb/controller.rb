@@ -9,6 +9,7 @@ module Tictactoe4rb
       @game = nil
     end
 
+
     def play
       display_welcome
       setup_game
@@ -17,16 +18,19 @@ module Tictactoe4rb
         player_next_move
         break if @game.finished?
       end
+      print_board
       display_winner
     end
 
+
     def display_winner
-      if winner = @game.current_player
+      if winner = @game.winner
         puts "Player #{winner.name} wins this round of TicTacToe!"
       else
         puts "That's a draw!"
       end
     end
+
 
     def print_board
       @fields = @game.board.map do |value|
@@ -42,6 +46,7 @@ module Tictactoe4rb
       puts output
     end
 
+
     def player_next_move
       loop do
         success = begin
@@ -50,8 +55,7 @@ module Tictactoe4rb
           row, column = @reader.next_move
           @game.move(row, column)
           true
-        rescue => e
-          raise e
+        rescue
           false
         end
         return if success
@@ -62,6 +66,7 @@ module Tictactoe4rb
     def display_welcome
       puts 'Welcome to the TicTacToe RubyGem by Alex & Roman!'
     end
+
 
     def setup_game
       @players = []

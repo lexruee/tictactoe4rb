@@ -17,19 +17,20 @@ module Tictactoe4rb
   class TerminalReader < InputReader
 
     def input
-      gets
+      gets.chomp
     end
 
 
     def next_move
-      row, column = @moves.shift
+      str = input
+      row, column = str.split(",")
       [row.to_i, column.to_i]
     end
 
   end
 
 
-  class ScriptedReader < TerminalReader
+  class ScriptedReader < InputReader
 
     def initialize(moves)
       @moves = moves
@@ -44,7 +45,7 @@ module Tictactoe4rb
 
 
     def next_move
-      row, column = super
+      row, column = @moves.shift
       puts "Make move [#{row},#{column}]"
       [row, column]
     end

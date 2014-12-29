@@ -51,7 +51,8 @@ module Tictactoe4rb
       loop do
         success = begin
           player_name = @game.current_player.name
-          puts "Player #{player_name} next move please!"
+          player_token = @game.current_player.token
+          puts "Player #{player_name}(#{player_token}) next move please!"
           row, column = @reader.next_move
           @game.move(row, column)
           true

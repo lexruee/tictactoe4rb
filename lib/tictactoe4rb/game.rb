@@ -1,6 +1,6 @@
 module Tictactoe4rb
   class Game
-    attr_reader :players, :board, :moves
+    attr_reader :players, :board, :moves, :previous_player
 
     def initialize(players, board)
       @moves = 0
@@ -11,6 +11,7 @@ module Tictactoe4rb
     def move(row, column)
       player = current_player
       @board[row, column] = player.token
+      @previous_player = player
       @moves += 1
     end
 
@@ -19,12 +20,12 @@ module Tictactoe4rb
     end
 
     def finished?
-      @board.check(current_player) || @board.full?
+      @board.check(previous_player) || @board.full?
     end
 
     def winner
-      if @board.check(current_player)
-        current_player
+      if @board.check(previous_player)
+        previous_player
       else
         false
       end

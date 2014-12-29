@@ -17,8 +17,8 @@ require 'tictactoe4rb'
         @scripted_reader = ScriptedReader.new(@moves)
       end
       it "create Game Controller" do
-        Controller = Controller.new(@scripted_reader)
-        Controller.play
+        controller = Controller.new(@scripted_reader)
+        controller.play
       end
 
    end

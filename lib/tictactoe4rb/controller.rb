@@ -2,14 +2,18 @@ module Tictactoe4rb
 
   class Controller
 
+    attr_reader :game
+
     def initialize(input_reader)
       @reader = input_reader
+      @game = nil
     end
 
     def play
       display_welcome
       setup_game
       loop do
+        print_board
         player_next_move
         break if @game.finished?
       end
@@ -25,18 +29,15 @@ module Tictactoe4rb
     end
 
     def print_board
-      @fields = @game.board.map do |field_value|
-        value = if Board::Empty
-                  ' '
-                else
-                  field_value.to_s
-                end
+      @fields = @game.board.map do |value|
         "|#{value}|"
       end
+
       output = ""
       @fields.each_with_index do |value, index|
         f = "#{value}"
         f += "\n" if (index + 1) % 3 == 0
+        output << f
       end
       puts output
     end
@@ -49,7 +50,8 @@ module Tictactoe4rb
           row, column = @reader.next_move
           @game.move(row, column)
           true
-        rescue
+        rescue => e
+          raise e
           false
         end
         return if success

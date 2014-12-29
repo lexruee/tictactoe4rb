@@ -32,7 +32,16 @@ module Tictactoe4rb
     end
 
     def input
-      @moves.shift
+      input = @moves.shift
+      puts "Enter input: %s" % input
+      input
+    end
+
+    def next_move
+      pp @moves
+      row, column = super
+      puts "Make move [#{row},#{column}]"
+      [row, column]
     end
 
   end

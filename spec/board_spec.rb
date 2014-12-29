@@ -32,6 +32,17 @@ module Tictactoe4rb
         expect(board.full?).to eq true
       end
 
+      it "create diagonal board" do
+        board = Board.new(3, 3)
+        board[0,2] = :x
+        board[1,1] = :x
+        board[2,0] = :x
+        board[0,0] = :o
+        board[0,1] = :o
+        player = Player.new 'dummy', :x
+        expect(board.check(player)).to eq true
+      end
+
     end
   end
 end
